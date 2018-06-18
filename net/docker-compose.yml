@@ -1,0 +1,11 @@
+version: '3'
+services:
+  net:
+    build: .
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    restart: always
+    stdin_open: true
+    tty: true
+    command: traceroute
