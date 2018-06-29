@@ -1,0 +1,119 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: 'jdepend'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+// apply plugin: 'war'
+// apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+
+group = 'org.exfly'
+version = '0.0.1-SNAPSHOT'
+description = """LombokL常用插件汇总 2018年6月23日"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+checkstyle {
+    ignoreFailures=true
+    // configFile file('config/checkstyle/google_checks.xml')
+    // configFile file('config/checkstyle/sun_checks.xml')
+    configFile file('config/checkstyle/alibaba_checks_mini.xml')
+    // configFile file('config/checkstyle/alibaba_checks_full.xml')
+    // https://github.com/maxvetrenko/checkstyle 
+    // configFile file('config/checkstyle/google_checks.xml')
+}
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        // html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
+}
+findbugs{
+    ignoreFailures=true
+    findbugsTest.enabled=false
+}
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+tasks.withType(Pmd){
+    reports{
+        xml.enabled=true
+        html.enabled=true
+    }
+}
+
+pmd {
+    ignoreFailures = true
+    pmdTest.enabled=false
+    // https://pmd.github.io/pmd-5.4.6/pmd-java/rules/index.html
+    ruleSets = [
+        'java-basic',
+        'java-braces',
+        'java-clone',
+        'java-codesize',
+        'java-comments',
+        'java-controversial',
+        'java-coupling',
+        'java-design',
+        'java-empty',
+        'java-finalizers',
+        'java-imports',
+        'java-optimizations',
+        'java-strictexception',
+        'java-strings',
+        'java-typeresolution',
+        'java-unnecessary',
+        'java-unusedcode'
+    ]
+}
+
+// gretty {
+  // supported values:
+  // 'jetty7', 'jetty8', 'jetty9', 'tomcat7', 'tomcat8'
+//   servletContainer = 'jetty9'
+// }
+
+task run(type: JavaExec, dependsOn: 'classes') {
+    description '运行指定main函数的java'
+    classpath = sourceSets.main.runtimeClasspath
+    if(project.hasProperty('main')){
+        main = "${project.getProperty('main')}"
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { 
+       url "http://repo.maven.apache.org/maven2" 
+    }
+}
+
+dependencies {
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.25'
+    compile(group: 'ch.qos.logback', name: 'logback-classic', version:'1.0.13') {exclude(module: 'slf4j-api')}
+    compile group: 'com.google.guava', name: 'guava', version:'25.1-jre'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version:'2.19.0'
+    
+    compileOnly group: 'org.projectlombok', name: 'lombok', version:'1.18.0'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version:'1.18.0'
+}

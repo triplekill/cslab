@@ -9,50 +9,50 @@
 By [Exfly](https://exfly.github.io/about/).
 
 ## Description
-Every time I learn a technology, I must set up a corresponding development environment. Others are repeating my steps. So I want to record my steps to build the environment as much as possible. Latecomers can build the development environment with one click, which can save a lot of time and focus on learning new things. As above. It also serves as my code repository.
+每次，我学习一种技术，都要搭建相应的开发环境。其他人也在重复着我的步骤。所以我想将我搭建环境的步骤尽量记录下来，后来者可以一键搭建开发环境，这样可以节省大量时间，将精力集中到学习新东西上来。如上。同时这里也当作我的代码仓库。
 
-## Installation
+## 安装
 
 ```shell
 cd /path/to/onedir
 git clone https://github.com/ExFly/ComputSciLab.git
 ```
 
-## Usage
+具体每种实验环境，请看相应目录
 
-For details, please see the catalog of the corresponding environment
+## 使用方法
 
-## Environment introduction
+具体请看对应环境的目录
 
+## 环境介绍
 * [BigData/MariaDB](/ExFly/ComputSciLab/BigData/MariaDB)
-mysql/mariadb env
+mysql/mariadb的安装和代码调试笔记
 * [mycode](/ExFly/ComputSciLab/Code)
 
-### Known Issues
+### 已知的问题
 
-If you discover any bugs, feel free to create an issue on GitHub fork and
-send us a pull request.
+如果您发现任何错误，请随时在GitHub fork和git上创建问题
+向我们发送拉请求。
 
-[Issues List](https://github.com/ExFly/ComputSciLab/issues).
+[问题列表](https://github.com/ExFly/ComputSciLab/issues).
 
 ## 资源
-* [learn to use docker in development](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
+* [如何使用docker用于develop](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
 
-
-## Authors
+## 作者
 
 * [exfly](https://github.com/ExFly)
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Fork 项目
+2. 创建你的特性分支 (`git checkout -b my-new-feature`)
+3. 提交到本地 (`git commit -am 'Add some feature'`)
+4. 提交分支到远程分支 (`git push origin my-new-feature`)
+5. 发起 pull request
 
 
-## License
+## 许可
 
 Copyright [2018] [exfly]
 
