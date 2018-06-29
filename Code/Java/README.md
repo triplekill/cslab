@@ -1,8 +1,11 @@
-# maven和gradle学习整理的项目最常用配置
-2018年6月24日最新
+# java code snippet
+update at 2018.06.29
 
+## code list
+* lombok
+* guava
 
-## 实验用的命令
+## command
 ```
 gradlew.bat build
 gradlew.bat clean
@@ -10,7 +13,7 @@ gradlew.bat run -Pmain=packagename.ClassName
 ```
 
 ```
-创建mvnw：
+use mvn init proj mvnw：
 mvn -N io.takari:maven:wrapper
 
 mvnw.cmd clean
@@ -20,6 +23,6 @@ mvnw.cmd compiler:compile
 mvnw.cmd exec:java -Dexec.mainClass="org.exfly.LombokL.LombokLApplication" -q
 ```
 
-# 资源
+# source
 [JVM](github.com/exfly/CsLearning/NoteBookForDevelop/文档/Java/提高/JVM.md)
 [guava doc zh](https://willnewii.gitbooks.io/google-guava/content/)

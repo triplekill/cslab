@@ -27,6 +27,7 @@ git clone https://github.com/ExFly/ComputSciLab.git
 ## 环境介绍
 * [BigData/MariaDB](/ExFly/ComputSciLab/BigData/MariaDB)
 mysql/mariadb的安装和代码调试笔记
+* [java等一些配置变量](/ExFly/ComputSciLab/set_path.sh)
 * [mycode](/ExFly/ComputSciLab/Code)
 
 ### 已知的问题

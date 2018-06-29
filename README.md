@@ -26,6 +26,7 @@ For details, please see the catalog of the corresponding environment
 
 * [BigData/MariaDB](/ExFly/ComputSciLab/BigData/MariaDB)
 mysql/mariadb env
+* [java+](/ExFly/ComputSciLab/set_path.sh)
 * [mycode](/ExFly/ComputSciLab/Code)
 
 ### Known Issues

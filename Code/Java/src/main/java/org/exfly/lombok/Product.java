@@ -1,11 +1,10 @@
 package org.exfly.lombok;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 /**
- *
  * @author exfly
- *
  */
 @Data
 @Builder
