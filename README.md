@@ -40,7 +40,7 @@ send us a pull request.
 
 [Issues List](https://github.com/ExFly/ComputSciLab/issues).
 
-## 资源
+## Source
 * [learn to use docker in development](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
 
 
@@ -59,7 +59,7 @@ send us a pull request.
 
 ## License
 
-Copyright [2018] [exfly]
+Copyright 2018 Exfly
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
