@@ -9,6 +9,7 @@
 By [Exfly](https://exfly.github.io/about/).
 
 ## Description
+> `docker` `vagrant` `dev env` `lab env` `virtualbox`
 Every time I learn a technology, I must set up a corresponding development environment. Others are repeating my steps. So I want to record my steps to build the environment as much as possible. Latecomers can build the development environment with one click, which can save a lot of time and focus on learning new things. As above. It also serves as my code repository.
 
 ## Installation
@@ -24,10 +25,13 @@ For details, please see the catalog of the corresponding environment
 
 ## Environment introduction
 
-* [BigData/MariaDB](/ExFly/ComputSciLab/BigData/MariaDB)
-mysql/mariadb env
-* [java+](/ExFly/ComputSciLab/set_path.sh)
-* [mycode](/ExFly/ComputSciLab/Code)
+* [Docker](/ExFly/ComputSciLab/Docker)
+* [FlexBisonLLVM](/ExFly/ComputSciLab/FlexBisonLLVM)
+* [Kafka](/ExFly/ComputSciLab/Kafka)
+* [Java](/ExFly/ComputSciLab/set_path.sh)
+* [MariaDB](/ExFly/ComputSciLab/MariaDB)
+* [Redis](/ExFly/ComputSciLab/Redis)
+* [Mycode](/ExFly/ComputSciLab/Code)
 
 ### Known Issues
 

@@ -281,4 +281,5 @@ MANIFEST
 *.log
 
 # mysql
-/BigData/MariaDB/mariadb-10.2.15
+/MariaDB/mariadb-10.2.15
+.softwenv/

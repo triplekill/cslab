@@ -1,10 +1,9 @@
 http://mirror.bit.edu.cn/apache/kafka/
 
 ```
-chrome open https://kafka.apache.org/quickstart#quickstart_multibroker
-and download the version you need.
-tar -xzf kafka{version}.tgz
-cd kafka{version}
+wget http://mirror.bit.edu.cn/apache/kafka/1.1.0/kafka_2.11-1.1.0.tgz
+tar -xzf kafka_2.11-1.1.0.tgz
+cd kafka_2.11-1.1.0
 
 cp bin/kafka-server-start.sh bin/kafka-server-start.sh.bak
 vim bin/kafka-server-start.sh

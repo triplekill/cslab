@@ -9,6 +9,7 @@
 By [Exfly](https://exfly.github.io/about/).
 
 ## Description
+> `docker` `vagrant` `开发环境` `实验环境` `virtualbox`
 每次，我学习一种技术，都要搭建相应的开发环境。其他人也在重复着我的步骤。所以我想将我搭建环境的步骤尽量记录下来，后来者可以一键搭建开发环境，这样可以节省大量时间，将精力集中到学习新东西上来。如上。同时这里也当作我的代码仓库。
 
 ## 安装
@@ -25,9 +26,13 @@ git clone https://github.com/ExFly/ComputSciLab.git
 具体请看对应环境的目录
 
 ## 环境介绍
-* [BigData/MariaDB](/ExFly/ComputSciLab/BigData/MariaDB)
-mysql/mariadb的安装和代码调试笔记
-* [java等一些配置变量](/ExFly/ComputSciLab/set_path.sh)
+
+* [Docker](/ExFly/ComputSciLab/Docker)
+* [FlexBisonLLVM](/ExFly/ComputSciLab/FlexBisonLLVM)
+* [Kafka](/ExFly/ComputSciLab/Kafka)
+* [Java](/ExFly/ComputSciLab/set_path.sh)
+* [MariaDB](/ExFly/ComputSciLab/MariaDB) mysql/mariadb的安装和代码调试笔记
+* [Redis](/ExFly/ComputSciLab/Redis)
 * [mycode](/ExFly/ComputSciLab/Code)
 
 ### 已知的问题
