@@ -40,17 +40,6 @@ public class LoginRest {
         return isvalided;
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(valid("admin", "admin"));
-        System.out.println(valid("admin", "admi"));
-        System.out.println(valid("admi", "admin"));
-        System.out.println(valid("", "admin"));
-        System.out.println(valid("admin", ""));
-        System.out.println(valid("admin", null));
-        System.out.println(valid(null, "admin"));
-    }
-
     /**
      * @description 登陆
      * @author ExFly
