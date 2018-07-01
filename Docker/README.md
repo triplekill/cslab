@@ -3,6 +3,9 @@
 
 # install docker in linux
 ```sh
+sudo bash install.sh
+
+
 curl -fsSL https://get.docker.com/ | sh
 sudo service docker start # centos中 启动docker
 sudo echo '{"registry-mirrors": ["http://hub-mirror.c.163.com"]}' > /etc/docker/daemon.json
