@@ -1,6 +1,7 @@
 package array
 
 
+//https://leetcode-cn.com/problems/reshape-the-matrix/description/
 func matrixReshape(nums [][]int, r int, c int) [][]int {
 	// nums为空 or 
 	if len(nums)==0 || len(nums)*len(nums[0]) != r*c {
