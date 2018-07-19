@@ -3,6 +3,7 @@
 * [重塑矩阵](https://leetcode-cn.com/problems/reshape-the-matrix/description/)
 * [杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/description/)
 * [托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix/description/)
+* [移动零](https://leetcode-cn.com/problems/move-zeroes/description/)
 
 # 哈希表
 # 链表
@@ -20,6 +21,8 @@
 # 位运算
 # 树
 # 深度优先搜索
+* [岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island/description/)
+
 # 广度优先搜索
 # 并查集
 # 图
