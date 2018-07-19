@@ -1,9 +1,5 @@
-package main
+package array
 
-import (
-	"fmt"
-	// "log"
-)
 
 // https://leetcode-cn.com/problems/array-partition-i/description/
 // 超出时间限制，说明排序算法效率太低
@@ -62,9 +58,4 @@ func arrayPairSum2(nums []int) int {
 		sum += nums[2*i]
 	}
 	return sum
-}
-
-func main() {
-	var array = []int{1, 4, 3, 2}
-	fmt.Println(arrayPairSum2(array))
 }
