@@ -4,6 +4,7 @@
 * [杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/description/)
 * [托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix/description/)
 * [移动零](https://leetcode-cn.com/problems/move-zeroes/description/)
+* [求众数](https://leetcode-cn.com/problems/majority-element/description/)
 
 # 哈希表
 # 链表

@@ -6,7 +6,9 @@ import (
 
 func TestMoveZeros(t *testing.T) {
 	arr := []int{0,1,0,3,12}
-	t.Error(arr)
+
 	moveZeroes(arr)
-	t.Error(arr)
+	if arr[2]!=12 {
+		t.Error("move zero error")
+	}
 }
