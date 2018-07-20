@@ -9,6 +9,7 @@
 * [移除元素](https://leetcode-cn.com/problems/remove-element/description/)
 * [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
 * [两数之和](https://leetcode-cn.com/problems/two-sum/description/)
+* [搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/description/)
 
 # 哈希表
 # 链表
