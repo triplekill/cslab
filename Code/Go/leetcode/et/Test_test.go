@@ -25,4 +25,16 @@ func TestGoSynax(t *testing.T) {
 	t.Error(3 / 2.0)
 	t.Error(3.0 / 2)
 
+	l := []int{4, 5, 6}
+	for _, i := range l {
+		t.Error(i)
+	}
+
+	mp := make(map[int]bool)
+	mp[1] = true
+	mp[2] = false
+	mp[3] = true
+	for i, j := range mp {
+		t.Error(i, j)
+	}
 }
