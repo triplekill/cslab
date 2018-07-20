@@ -1,6 +1,7 @@
 package array
 
 // 需要考虑 [3,3] 6的情况
+// https://leetcode-cn.com/problems/two-sum/description/
 func twoSum(nums []int, target int) []int {
 	mp := make(map[int]int)
 	res := []int{}
