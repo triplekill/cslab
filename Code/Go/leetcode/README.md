@@ -6,6 +6,7 @@
 * [移动零](https://leetcode-cn.com/problems/move-zeroes/description/)
 * [求众数](https://leetcode-cn.com/problems/majority-element/description/)
 * [最大重复次数](https://leetcode-cn.com/problems/max-consecutive-ones/description/)
+* [移除元素](https://leetcode-cn.com/problems/remove-element/description/)
 
 # 哈希表
 # 链表
