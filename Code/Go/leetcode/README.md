@@ -10,6 +10,7 @@
 * [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
 * [两数之和](https://leetcode-cn.com/problems/two-sum/description/)
 * [搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/description/)
+* [存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/description/)
 
 # 哈希表
 # 链表
