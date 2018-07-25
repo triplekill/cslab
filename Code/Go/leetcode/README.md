@@ -14,6 +14,7 @@
 * [两数之和](https://leetcode-cn.com/problems/add-two-numbers/description/)
 * [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/)
 * [两个排序数组的中位数 :todo](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/description/)
+* [反转整数](https://leetcode-cn.com/problems/reverse-integer/description/)
 
 # 数组
 # 哈希表
@@ -50,7 +51,7 @@
 # 极小化极大
 # 蓄水池抽样
 # 几何
-# Map
+# Mp
 # Random
 # Rejection Sampling
 # 
@@ -61,4 +62,4 @@
 * var m int = 10 比 m:=10效率低
 
 # src
-go get github.com/mdempsky/gocode github.com/uudashr/gopkgs/cmd/gopkgs github.com/ramya-rao-a/go-outline github.com/acroca/go-symbols golang.org/x/tools/cmd/guru golang.org/x/tools/cmd/gorename github.com/fatih/gomodifytags github.com/haya14busa/goplay/cmd/goplay github.com/josharian/impl github.com/tylerb/gotype-live github.com/rogpeppe/godef golang.org/x/tools/cmd/godoc github.com/zmb3/gogetdoc golang.org/x/tools/cmd/goimports github.com/sqs/goreturns winterdrache.de/goformat/goformat github.com/golang/lint/golint github.com/cweill/gotests/... github.com/alecthomas/gometalinter honnef.co/go/tools/... github.com/golangci/golangci-lint/cmd/golangci-lint github.com/mgechev/revive github.com/sourcegraph/go-langserver github.com/derekparker/delve/cmd/dlv github.com/davidrjenni/reftools/cmd/fillstruct
+go get github.com/mdempsky/gocode github.com/uudashr/gopkgs/cmd/gopkgs github.com/ramya-rao-a/go-outline github.com/acroca/go-symbols golang.org/x/tools/cmd/guru golang.org/x/tools/cmd/gorename github.com/fatih/gomodifytags github.com/haya14busa/goplay/cmd/goplay github.com/josharian/impl github.com/tylerb/gotype-live github.com/rogpeppe/godef golang.org/x/tools/cmd/godoc github.com/zmb3/gogetdoc golang.org/x/tools/cmd/goimports github.com/sqs/goreturns winterdrache.de/goformat/goformat github.com/golang/lint/golint github.com/cweill/gotests/... github.com/alecthomas/gometalinter honnef.co/go/tools/... github.com/golangci/golangci-lint/cmd/golangci-lint github.com/mgechev/revive github.com/sourcegraph/go-langserver github.com/derekparker/delve/cmd/dlv github.com/davidrjenni/reftools/cmd/fillstruct 

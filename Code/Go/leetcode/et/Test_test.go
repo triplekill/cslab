@@ -37,4 +37,5 @@ func TestGoSynax(t *testing.T) {
 	for i, j := range mp {
 		t.Error(i, j)
 	}
+	t.Error(-3 % 10)
 }
