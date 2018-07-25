@@ -12,6 +12,7 @@
 * [搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/description/)
 * [存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/description/)
 * [两数之和](https://leetcode-cn.com/problems/add-two-numbers/description/)
+* [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/)
 
 # 哈希表
 # 链表
