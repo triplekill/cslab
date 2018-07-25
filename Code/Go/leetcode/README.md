@@ -1,4 +1,4 @@
-# 数组
+# 做题顺序 
 * [数组拆分](https://leetcode-cn.com/problems/array-partition-i/description/)
 * [重塑矩阵](https://leetcode-cn.com/problems/reshape-the-matrix/description/)
 * [杨辉三角](https://leetcode-cn.com/problems/pascals-triangle/description/)
@@ -13,7 +13,9 @@
 * [存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/description/)
 * [两数之和](https://leetcode-cn.com/problems/add-two-numbers/description/)
 * [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/)
+* [两个排序数组的中位数 :todo](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/description/)
 
+# 数组
 # 哈希表
 # 链表
 # 数学
