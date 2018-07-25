@@ -12,6 +12,7 @@ type ListNode struct {
  *     Next *ListNode
  * }
  */
+//https://leetcode-cn.com/problems/add-two-numbers/description/
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	h := &ListNode{0, nil} // h 链表头
 	n := h                 // n 游标
@@ -20,30 +21,32 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	for l1 != nil && l2 != nil {
 		tn := &ListNode{0, nil}
 		tn.Val = (l1.Val + l2.Val + remain) % 10
-		remain = (l1.Val + l2.Val) / 10
+		remain = (l1.Val + l2.Val + remain) / 10
 		n.Next = tn
 		n = tn
 		l1 = l1.Next
 		l2 = l2.Next
 	}
 	// 其中会有一个没有遍历完全，需要继续遍历
-	for l1 != nil {
+	var othern *ListNode
+	if l1 != nil {
+		othern = l1
+	} else {
+		othern = l2
+	}
+	for othern != nil {
 		tn := &ListNode{0, nil}
-		tn.Val = (l1.Val + remain) % 10
-		remain = l1.Val / 10
+		tn.Val = (othern.Val + remain) % 10
+		remain = (othern.Val + remain) / 10
 		n.Next = tn
 		n = tn
+		othern = othern.Next
 	}
-	for l2 != nil {
+
+	for remain != 0 {
 		tn := &ListNode{0, nil}
-		tn.Val = (l1.Val + remain) % 10
-		remain = l1.Val / 10
-		n.Next = tn
-		n = tn
-	}
-	if remain != 0 {
-		tn := &ListNode{0, nil}
-		tn.Val = remain
+		tn.Val = remain % 10
+		remain = remain / 10
 		n.Next = tn
 		n = tn
 	}

@@ -11,6 +11,7 @@
 * [两数之和](https://leetcode-cn.com/problems/two-sum/description/)
 * [搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/description/)
 * [存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/description/)
+* [两数之和](https://leetcode-cn.com/problems/add-two-numbers/description/)
 
 # 哈希表
 # 链表
