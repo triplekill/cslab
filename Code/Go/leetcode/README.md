@@ -14,8 +14,10 @@
 * [两数之和](https://leetcode-cn.com/problems/add-two-numbers/description/)
 * [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/)
 * [两个排序数组的中位数 :todo](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/description/)
-* [反转整数](https://leetcode-cn.com/problems/reverse-integer/description/)
+* [反转整数](https://leetcode-cn.com/problems/reverse-integer/description/)数字溢出问题
+* [字符串转数字](https://leetcode-cn.com/problems/string-to-integer-atoi/description/) 数字溢出
 
+问题
 # 数组
 # 哈希表
 # 链表
