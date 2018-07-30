@@ -38,4 +38,6 @@ func TestGoSynax(t *testing.T) {
 		t.Error(i, j)
 	}
 	t.Error(-3 % 10)
+
+	for 
 }
