@@ -38,4 +38,5 @@ graph LR
 
 
 # 资源
-[go playground](https://play.golang.org/)
+* [go playground](https://play.golang.org/)
+* cd $GOPATH/src/github.com/exfly && rsync -av  lngo /Users/haifei.zhang/Project/exfly/ComputSciLab/Code/Go/
