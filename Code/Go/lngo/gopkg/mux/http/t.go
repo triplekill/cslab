@@ -5,8 +5,6 @@ import (
 	"fmt"
 )
 
-
-
 func main(){
 	http.HandleFunc("/hi", hi)
 	http.ListenAndServe(":8080", nil)
