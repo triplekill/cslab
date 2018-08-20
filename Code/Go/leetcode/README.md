@@ -21,6 +21,7 @@
 * [最长公公前缀](https://leetcode-cn.com/problems/longest-common-prefix/description/)
 * [删除链表倒数第n个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/description/)
 * [有效的括号](https://leetcode-cn.com/problems/valid-parentheses/description/)
+* [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/description/)
 
 # 数组
 # 哈希表
