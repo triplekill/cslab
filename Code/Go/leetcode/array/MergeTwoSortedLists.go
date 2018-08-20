@@ -30,3 +30,19 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	return ret.Next
 }
+
+// https://leetcode-cn.com/problems/merge-k-sorted-lists/description/
+func mergeKLists(lists []*ListNode) *ListNode {
+	if len(lists) == 0 {
+		return nil
+	}
+	n := len(lists)
+	for n > 1 {
+		k := (n + 1) / 2
+		for i := 0; i < n/2; i++ {
+			lists[i] = mergeTwoLists(lists[i], lists[i+k])
+		}
+		n = k
+	}
+	return lists[0]
+}
