@@ -36,6 +36,8 @@ graph LR
     id1>This is the text in the box]
 ```
 
+# 依赖
+- github.com/gomodule/redigo/redis
 
 # 资源
 * [go playground](https://play.golang.org/)
