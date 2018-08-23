@@ -38,6 +38,7 @@ graph LR
 
 # 依赖
 - github.com/gomodule/redigo/redis
+- https://github.com/go-redis/cache
 
 # 资源
 * [go playground](https://play.golang.org/)
