@@ -40,7 +40,6 @@ func TestBSONOmitempty(t *testing.T) {
 
 	res := Home{}
 	c.FindId(id).Limit(1).One(&res)
-	t.Errorf("time.Time.Unix() %v %v", res.InsertTime.Unix(), obj1.InsertTime.Unix())
 	if !TimeIsEqual(res.InsertTime, obj1.InsertTime) {
 		log.Println(res)
 		t.Errorf("set failed! id=%v", id)
