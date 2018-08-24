@@ -20,8 +20,9 @@ type Toy struct {
 }
 
 type People struct {
-	ID   string
-	Name string
-	Age  uint
-	Toys []Toy
+	ID      string `bson:"_id"`
+	Name    string
+	Age     uint
+	Toys    []Toy
+	Account int `bson:"account"`
 }

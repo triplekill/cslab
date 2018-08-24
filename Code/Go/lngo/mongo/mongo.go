@@ -5,8 +5,10 @@ import (
 	"log"
 	"time"
 
+	"github.com/exfly/lngo/model"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
+	"github.com/globalsign/mgo/txn"
 )
 
 type Home struct {
@@ -57,4 +59,38 @@ func BSONOmitempty() {
 		"$set": obj,
 	})
 
+}
+
+// TestTxn tansaction implement
+// core code at
+// https://blog.labix.org/2012/08/22/multi-doc-transactions-for-mongodb
+// 经典两阶段提交 https://acupple.github.io/2016/08/09/MongoDB%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%E5%AE%9E%E7%8E%B0%E4%BA%8B%E5%8A%A1/
+// 分布式事务同时使用这种方式就可以
+func TestTxn() {
+	sess, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		log.Println(err)
+	}
+	colle := sess.DB("").C("account")
+
+	p1 := model.People{ID: "A", Account: 100}
+	p2 := model.People{ID: "B", Account: 100}
+	colle.Insert(p1)
+	colle.Insert(p2)
+	runner := txn.NewRunner(sess.DB("").C("account_txn"))
+	ops := []txn.Op{{
+		C:      "account",
+		Id:     p1.ID,
+		Assert: bson.M{"account": bson.M{"$gte": 10}},
+		Update: bson.M{"$inc": bson.M{"account": -10}},
+	}, {
+		C:      "account",
+		Id:     p2.ID,
+		Update: bson.M{"$inc": bson.M{"account": 10}},
+	}}
+	id := bson.NewObjectId() // Optional
+	err = runner.Run(ops, id, nil)
+	if err != nil {
+		log.Println(err)
+	}
 }

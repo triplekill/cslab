@@ -32,6 +32,8 @@ func main() {
 	// }
 	// log.Println(time.Now().Sub(start))
 	// log.Println()
-	mongo.BSONOmitempty()
 
+	// mongo.BSONOmitempty()
+
+	mongo.TestTxn()
 }
