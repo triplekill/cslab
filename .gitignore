@@ -284,3 +284,4 @@ MANIFEST
 /MariaDB/mariadb-10.2.15
 .softwenv/
 *.test
+Code/Go/lngo/vendor

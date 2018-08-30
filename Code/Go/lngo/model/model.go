@@ -1,11 +1,13 @@
 package model
 
 type User struct {
+	ID       string `bson:"_id"`
 	Name     string
 	Age      int
 	Username string
 	Pwd      string
 	Pet      []string
+	Toy      []Toy
 }
 
 type Animal struct {
