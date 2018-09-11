@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"net/http/pprof"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -31,9 +33,17 @@ func (amw *authenticationMiddleware) Middleware(next http.Handler) http.Handler 
 			log.Printf("Authenticated user %s\n", user)
 			next.ServeHTTP(w, r)
 		} else {
-			http.Error(w, "Forbidden", http.StatusForbidden)
+			// http.Error(w, "Forbidden", http.StatusForbidden)
+
+			// for debug and pass; temp add
+			next.ServeHTTP(w, r)
 		}
 	})
+}
+
+func hi(res http.ResponseWriter, req *http.Request) {
+	fmt.Println(req)
+	fmt.Fprintf(res, "hi")
 }
 
 func main() {
@@ -44,12 +54,25 @@ func main() {
 	amw := authenticationMiddleware{make(map[string]string)}
 	amw.Populate()
 	r.Use(amw.Middleware)
+
+	r.HandleFunc("/hi", hi)
+
+	r.HandleFunc("/debug/pprof/", pprof.Index)
+	r.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
+	r.HandleFunc("/debug/pprof/profile", pprof.Profile)
+	r.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
+
+	// Manually add support for paths linked to by index page at /debug/pprof/
+	r.Handle("/debug/pprof/goroutine", pprof.Handler("goroutine"))
+	r.Handle("/debug/pprof/heap", pprof.Handler("heap"))
+	r.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
+	r.Handle("/debug/pprof/block", pprof.Handler("block"))
 	srv := &http.Server{
 		Handler: r,
 		Addr:    "127.0.0.1:8000",
 		// Good practice: enforce timeouts for servers you create!
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
+		WriteTimeout: 31 * time.Second,
+		ReadTimeout:  31 * time.Second,
 	}
 	log.Fatal(srv.ListenAndServe())
 }
