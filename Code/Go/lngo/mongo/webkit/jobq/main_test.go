@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	jobq "github.com/exfly/lngo/mongo/webkit/jobq"
+	jobq "github.com/exfly/cslab/Code/Go/lngo/mongo/webkit/jobq"
 	"github.com/mongodb/mongo-go-driver/mongo"
 )
 

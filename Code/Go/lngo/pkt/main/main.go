@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/exfly/lngo/pkt"
+	"github.com/exfly/cslab/Code/Go/lngo/pkt"
 )
 
 func main() {

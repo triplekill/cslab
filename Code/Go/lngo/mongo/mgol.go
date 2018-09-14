@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/exfly/lngo/model"
+	"github.com/exfly/cslab/Code/Go/lngo/model"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
 	"github.com/globalsign/mgo/txn"

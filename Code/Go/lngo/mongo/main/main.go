@@ -1,6 +1,6 @@
 package main
 
-import "github.com/exfly/lngo/mongo"
+import "github.com/exfly/cslab/Code/Go/lngo/mongo"
 
 func main() {
 	// mongo.Test1()
