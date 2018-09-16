@@ -285,3 +285,7 @@ MANIFEST
 .softwenv/
 *.test
 Code/Go/lngo/vendor
+
+# Rust
+/target
+**/*.rs.bk
