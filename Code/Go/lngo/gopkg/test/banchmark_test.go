@@ -19,3 +19,19 @@ func Test_unmarshalt(t *testing.T) {
 		unmarshalt()
 	}
 }
+
+func BenchmarkFormat(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		unmarshalt()
+	}
+}
+
+// 测试并发效率
+func BenchmarkLoopsParallel(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			unmarshalt()
+		}
+	})
+}
