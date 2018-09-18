@@ -303,13 +303,71 @@ fn matchh() {
     fn value_in_cents(coin: Coin) -> u32 {
         match coin {
             Coin::Penny => {
+                // 如果想要在分支中运行多行代码，可以使用大括号
                 println!("\tmatch penny:");
                 1
-                },
+            }
             Coin::Nickel => 5,
             Coin::Dime => 10,
             Coin::Quarter => 25,
         }
     }
-    println!("\tvalue: {}",value_in_cents(Coin::Penny));
+    println!("\tvalue: {}", value_in_cents(Coin::Penny));
+
+    #[derive(Debug)] // So we can inspect the state in a minute
+    enum UsState {
+        Alabama,
+        Alaska,
+        // ... etc
+    }
+    enum Coin2 {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter(UsState),
+    }
+    // 绑定值的模式
+    fn value_in_cents2(coin: Coin2) -> u32 {
+        match coin {
+            Coin2::Penny => 1,
+            Coin2::Nickel => 5,
+            Coin2::Dime => 10,
+            Coin2::Quarter(state) => {
+                println!("\tState quarter from {:?}!", state);
+                25
+            }
+        }
+    }
+    value_in_cents2(Coin2::Quarter(UsState::Alaska));
+
+    // 匹配Option<T>
+    fn plus_one(x: Option<i32>) -> Option<i32> {
+        match x {
+            None => None,
+            Some(i) => Some(i + 1),
+        }
+    }
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+
+    let some_u8_value = 0u8;
+    match some_u8_value {
+        1 => println!("\tone"),
+        3 => println!("\tthree"),
+        5 => println!("\tfive"),
+        7 => println!("\tseven"),
+        _ => println!("\tover~"),
+    }
+
+    let some_u8_value = Some(0u8);
+    match some_u8_value {
+        Some(3) => println!("\tthree"),
+        _ => (),
+    }
+    if let Some(3) = some_u8_value {
+        println!("\tthree");
+    }else{
+        println!("\tif let else");
+    }
 }
