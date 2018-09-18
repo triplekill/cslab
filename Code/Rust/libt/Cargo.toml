@@ -1,7 +1,6 @@
 [package]
-name = "lrust"
+name = "libt"
 version = "0.1.0"
 authors = ["exfly <exfly@outlook.com>"]
 
 [dependencies]
-libt={ version="0.1.0", path="libt"}

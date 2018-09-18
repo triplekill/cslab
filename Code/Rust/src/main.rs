@@ -1,3 +1,5 @@
+extern crate libt;
+mod t;
 fn main() {
     var();
     datatype();
@@ -9,6 +11,7 @@ fn main() {
     structf();
     enumss();
     matchh();
+    t::t();
 }
 
 // var and const
@@ -367,7 +370,7 @@ fn matchh() {
     }
     if let Some(3) = some_u8_value {
         println!("\tthree");
-    }else{
+    } else {
         println!("\tif let else");
     }
 }

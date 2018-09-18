@@ -1,4 +1,11 @@
 [[package]]
+name = "libt"
+version = "0.1.0"
+
+[[package]]
 name = "lrust"
 version = "0.1.0"
+dependencies = [
+ "libt 0.1.0",
+]
 
