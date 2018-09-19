@@ -10,3 +10,9 @@ fn tsupper() {
     use super::client; //使其不再相对于根模块而是相对于父模块。
     client::connect();
 }
+
+#[test]
+fn runall() {
+    let mut config = super::Config{query:String::from("query"),filename:String::from("filename")};
+    super::run(config);
+}
