@@ -509,16 +509,16 @@ fn errorr() {
 
 fn generics() {
     // TODO:
-    // fn largest<T>(list: &[T]) -> T {
-    //     let mut largest = list[0];
+    fn largest<T: PartialOrd+Copy>(list: &[T]) -> T {
+        let mut largest = list[0];
 
-    //     for &item in list.iter() {
-    //         if item > largest {
-    //             largest = item;
-    //         }
-    //     }
-    //     largest
-    // }
+        for &item in list.iter() {
+            if item > largest {
+                largest = item;
+            }
+        }
+        largest
+    }
 
     #[derive(Debug)]
     struct Point<T> {
@@ -544,17 +544,10 @@ fn generics() {
 
 fn traitt() {
     pub trait Summarizable {
-        fn summary(&self) -> String;
-    }
-    pub struct NewsArticle {
-        pub headline: String,
-        pub location: String,
-        pub author: String,
-        pub content: String,
-    }
-    impl Summarizable for NewsArticle {
+        fn author_summary(&self) -> String;
+
         fn summary(&self) -> String {
-            format!("{}, by {} ({})", self.headline, self.author, self.location)
+            format!("(Read more from {}...)", self.author_summary())
         }
     }
 
@@ -565,8 +558,8 @@ fn traitt() {
         pub retweet: bool,
     }
     impl Summarizable for Tweet {
-        fn summary(&self) -> String {
-            format!("{}: {}", self.username, self.content)
+        fn author_summary(&self) -> String {
+            format!("@{}", self.username)
         }
     }
 
@@ -577,4 +570,5 @@ fn traitt() {
         retweet: false,
     };
     println!("\t1 new tweet: {}", tweet.summary());
+    // >1 new tweet: (Read more from @horse_ebooks...)
 }

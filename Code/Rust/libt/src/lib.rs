@@ -1,19 +1,32 @@
+use std::error::Error;
+use std::fs::File;
+use std::io::prelude::*;
+
 pub mod client;
 
 pub mod networkt;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-        ::client::connect(); // 从根模块开始并列出整个路径
-        // 用 super 在层级中上移到当前模块的上一级模块
-        super::client::connect();
-    }
-    #[test]
-    fn tsupper() {
-        use super::client; //使其不再相对于根模块而是相对于父模块。
-        client::connect();
+pub struct Config {
+    pub query: String,
+    pub filename: String,
+}
+
+impl Config {
+    fn new(args: &[String]) -> Result<Config, &'static str> {
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
+
+        let query = args[1].clone();
+        let filename = args[2].clone();
+
+        Ok(Config { query, filename })
     }
 }
+
+pub fn run(config: Config) -> Result<(), Box<Error>> {
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests;
