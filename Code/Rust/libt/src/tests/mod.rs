@@ -1,3 +1,4 @@
+use super::*;
 #[test]
 fn it_works() {
     assert_eq!(2 + 2, 4);
@@ -13,6 +14,9 @@ fn tsupper() {
 
 #[test]
 fn runall() {
-    let mut config = super::Config{query:String::from("query"),filename:String::from("filename")};
-    super::run(config);
+    let mut config = Config {
+        query: String::from("query"),
+        filename: String::from("filename"),
+    };
+    run(config);
 }

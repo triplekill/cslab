@@ -22,6 +22,7 @@ impl Config {
     }
 }
 
+
 pub fn run(config: Config) -> Result<(), Box<Error>> {
     var();
     datatype();
@@ -39,6 +40,19 @@ pub fn run(config: Config) -> Result<(), Box<Error>> {
     generics();
     traitt();
     Ok(())
+}
+
+/// Adds one to the number given.
+///
+/// # Examples
+///
+/// ```
+/// let five = 5;
+///
+/// assert_eq!(6, libt::add_one(5)); // Doc-tests
+/// ```
+pub fn add_one(x: i32) -> i32 {
+    x + 1
 }
 
 // var and const
