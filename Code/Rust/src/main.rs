@@ -12,6 +12,10 @@ fn main() {
     enumss();
     matchh();
     t::t();
+    collection();
+    errorr();
+    generics();
+    traitt();
 }
 
 // var and const
@@ -373,4 +377,204 @@ fn matchh() {
     } else {
         println!("\tif let else");
     }
+}
+
+fn collection() {
+    println!("Collection:");
+    let mut v: Vec<i32> = Vec::new();
+    v.push(1);
+    v.push(2);
+    println!("\t{:?}", v);
+    let mut v = vec![1, 2, 3];
+    v.push(4);
+    println!("\t{:?}", v);
+    let third: &i32 = &v[2];
+    println!("\t{:?}", third);
+    let third: Option<&i32> = v.get(2);
+    println!("\t{:?}", third);
+    let mut v = vec![100, 32, 57];
+    for i in &v {
+        // 不使用&，则所有全就moved，之后就不可以使用了
+        println!("\t{}", i);
+    }
+    for i in &mut v {
+        *i += 50;
+    }
+    // save mutil type use enum
+    #[derive(Debug)]
+    enum SpreadsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
+    println!("\t{:?}", row);
+
+    // string
+    let hello = String::from("السلام عليكم");
+    let hello = String::from("Dobrý den");
+    let hello = String::from("Hello");
+    let hello = String::from("שָׁלוֹם");
+    let hello = String::from("नमस्ते");
+    let hello = String::from("こんにちは");
+    let hello = String::from("안녕하세요");
+
+    let hello = String::from("Olá");
+    let hello = String::from("Hola");
+    let hello = String::from("Здравствуйте");
+
+    for h in hello.chars() {
+        println!("\t{}", h);
+    }
+    println!("\t{}", hello);
+    let hello = String::from("你好");
+    for h in hello.chars() {
+        println!("\t{}", h);
+    }
+
+    // map
+    use std::collections::HashMap;
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+    println!("\tmap: {:?}", scores);
+
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
+    let initial_scores = vec![10, 50];
+    let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
+    println!("\tvector zip{:?}", scores);
+    let team_name = String::from("Blue");
+    let score = scores.get(&team_name);
+    println!("\t{:?}", score);
+    let score = match score {
+        Some(p) => **p,
+        _ => 0,
+    };
+    println!("\toption to i32:{}", score);
+    for (key, value) in &scores {
+        println!("\t{}: {}", key, value);
+    }
+    // scores.entry(String::from("Blue")).or_insert(50); 只有键没有对应的值时插入
+}
+
+fn errorr() {
+    println!("Error");
+    use std::fs::File;
+    use std::io::ErrorKind;
+    let f = File::open("hello.txt");
+
+    let f = match f {
+        Ok(file) => file,
+        Err(ref error) if error.kind() == ErrorKind::NotFound => match File::create("hello.txt") {
+            Ok(fc) => fc,
+            Err(e) => panic!("Tried to create file but there was a problem: {:?}", e),
+        },
+        Err(error) => panic!("There was a problem opening the file: {:?}", error),
+    };
+    let f = File::open("hello.txt").unwrap();
+
+    use std::io;
+    use std::io::Read;
+
+    fn read_username_from_file() -> Result<String, io::Error> {
+        let f = File::open("hello.txt");
+        let mut f = match f {
+            Ok(file) => file,
+            Err(e) => return Err(e),
+        };
+        let mut s = String::new();
+        match f.read_to_string(&mut s) {
+            Ok(_) => Ok(s),
+            Err(e) => Err(e),
+        }
+    }
+    fn read_username_from_file2() -> Result<String, io::Error> {
+        let mut f = File::open("hello.txt")?;
+        let mut s = String::new();
+        f.read_to_string(&mut s)?;
+        Ok(s)
+    }
+    let s = read_username_from_file();
+    let s = match s {
+        Ok(string) => string,
+        Err(e) => String::new(),
+    };
+    println!("\t{:?}", s);
+}
+
+fn generics() {
+    // TODO:
+    // fn largest<T>(list: &[T]) -> T {
+    //     let mut largest = list[0];
+
+    //     for &item in list.iter() {
+    //         if item > largest {
+    //             largest = item;
+    //         }
+    //     }
+    //     largest
+    // }
+
+    #[derive(Debug)]
+    struct Point<T> {
+        x: T,
+        y: T,
+    }
+    impl<T> Point<T> {
+        fn x(&self) -> &T {
+            &self.x
+        }
+    }
+    //可以选择只为f32类型的point进行实现
+    impl Point<f32> {
+        fn distance_from_origin(&self) -> f32 {
+            (self.x.powi(2) + self.y.powi(2)).sqrt()
+        }
+    }
+    let integer = Point { x: 5, y: 10 };
+    println!("\tstruct generics:{:?} x:{}", integer, integer.x());
+    let flo = Point { x: 3.0, y: 4.0 };
+    println!("\t{}", flo.distance_from_origin());
+}
+
+fn traitt() {
+    pub trait Summarizable {
+        fn summary(&self) -> String;
+    }
+    pub struct NewsArticle {
+        pub headline: String,
+        pub location: String,
+        pub author: String,
+        pub content: String,
+    }
+    impl Summarizable for NewsArticle {
+        fn summary(&self) -> String {
+            format!("{}, by {} ({})", self.headline, self.author, self.location)
+        }
+    }
+
+    pub struct Tweet {
+        pub username: String,
+        pub content: String,
+        pub reply: bool,
+        pub retweet: bool,
+    }
+    impl Summarizable for Tweet {
+        fn summary(&self) -> String {
+            format!("{}: {}", self.username, self.content)
+        }
+    }
+
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false,
+    };
+    println!("\t1 new tweet: {}", tweet.summary());
 }
