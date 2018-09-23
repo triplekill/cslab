@@ -289,3 +289,7 @@ Code/Go/lngo/vendor
 # Rust
 /target
 **/*.rs.bk
+
+# C
+*.dSYM
+

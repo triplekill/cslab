@@ -7,7 +7,16 @@
 #include <unistd.h>
 #include <limits.h>
 #include <string.h>
+#include <time.h>
+#include <stddef.h>
+#include <sys/select.h>
+#include <sys/poll.h>
 
+#ifndef SSIZE_MAX
+// ubuntu 18.04 nodef
+#define SSIZE_MAX 1000
+#endif
+#define TIMEOUT 5 // in second
 #define BUF_SIZE 8192
 #define PROCESS_FILENAME "t.txt"
 char buffer[BUF_SIZE];
@@ -90,8 +99,47 @@ int writesome()
     return 0;
 }
 
+// !!!! #include <sys/select.h>
+void selectl()
+{
+    fd_set rfds;
+    struct timeval tv;
+    int retval;
+
+    /* Watch stdin (fd 0) to see when it has input. */
+    FD_ZERO(&rfds);
+    FD_SET(STDIN_FILENO, &rfds);
+
+    /* Wait up to five seconds. */
+    tv.tv_sec = 5;
+    tv.tv_usec = 0;
+
+    retval = select(1, &rfds, NULL, NULL, &tv);
+    /* Don't rely on the value of tv now! */
+    if (retval == -1)
+        perror("select()");
+    else if (retval)
+        printf("Data is available now.\n");
+    /* FD_ISSET(0, &rfds) will be true. */
+    else
+        printf("No data within five seconds.\n");
+
+    exit(EXIT_SUCCESS);
+}
+
+int selectvsleep()
+{
+    struct timeval tv;
+    tv.tv_usec = 0;
+    tv.tv_usec = 500; // sleep 500 microsecondes
+    select(0, NULL, NULL, NULL, &tv);
+    return 0;
+}
+
 int main(int argc, char *argv[], char *env[])
 {
     writesome();
     readsome();
+    // selectl();
+    selectvsleep();
 }
