@@ -11,6 +11,7 @@
 #include <stddef.h>
 #include <sys/select.h>
 #include <sys/poll.h>
+#include <sys/uio.h>
 
 #ifndef SSIZE_MAX
 // ubuntu 18.04 nodef
@@ -131,15 +132,130 @@ int selectvsleep()
 {
     struct timeval tv;
     tv.tv_usec = 0;
-    tv.tv_usec = 500; // sleep 500 microsecondes
+    tv.tv_usec = 500; // sleep 500 microsecondes 在linux和mac的单位不一样？
     select(0, NULL, NULL, NULL, &tv);
     return 0;
 }
 
+int polll()
+{
+    struct pollfd fds[2];
+    int ret;
+
+    fds[0].fd = STDIN_FILENO;
+    fds[0].events = POLLIN;
+    fds[1].fd = STDOUT_FILENO;
+    fds[1].events = POLLOUT;
+
+    ret = poll(fds, 2, TIMEOUT * 1000);
+    if (ret == -1)
+    {
+        perror("poll");
+        return 1;
+    }
+    if (!ret)
+    {
+        printf("poll timeout %d s", TIMEOUT);
+        return 0;
+    }
+
+    if (fds[0].revents & POLLIN)
+    {
+        printf("%d is readable\n", fds[0]);
+    }
+    if (fds[1].revents & POLLOUT)
+    {
+        printf("%d is writeable\n", fds[1]);
+    }
+    return 0;
+}
+
+#define LINE_MAX 10
+// fopen
+int stdfileprocess()
+{
+    FILE *fd = fopen("t.txt", "r+");
+    char ch = fgetc(fd);
+    printf("###%c %d###\n", ch,EOF);
+    char buf[LINE_MAX];
+    if (fgets(buf, LINE_MAX,fd)){
+        printf("fgets |%d|%s|\n", LINE_MAX,buf);
+    }
+    fputc('c',fd);
+    fputs("write string\n", fd);
+    fclose(fd);
+
+    FILE *in, *out;
+    struct pirate{
+        char name[100];
+        unsigned long booty;
+        unsigned int beard_len;
+    }p, blockbeard={"Edward Teach", 950, 48};
+    out = fopen("data.bat", "w");
+    if (!out) {
+        perror("fopen");
+        return 1;
+    }
+    if (!fwrite(&blockbeard, sizeof(struct pirate), 1, out)){
+        perror("fwrite");
+        return 1;
+    }
+    if(fclose(out)){
+        perror("fclose");
+        return 1;
+    }
+    in = fopen("data.bat", "r");
+    if (!in) {
+        perror("fopen");
+    }
+    if(!fread(&p,sizeof(struct pirate),1, in)){
+        perror("fread");
+        return 1;
+    }
+    if (fclose(in)){
+        perror("fclose");
+        return 1;
+    }
+    printf("name=%s booty=%lu beard_len=%u\n", p.name, p.booty, p.beard_len);
+    return 0;
+}
+
+int readviov(){
+    struct iovec iov[3];
+    ssize_t nr;
+    int fd, i;
+    char * buf[] = {
+        "aaaaaaaaaaaa.",
+        "bbbbbbbbbbbb.",
+        "cccccccccccc.",
+    };
+    fd =open("iov.bat",O_WRONLY|O_CREAT|O_TRUNC);
+    if (fd ==-1){
+        perror("open");
+        return 1;
+    }
+    for (i=0;i<3;i++){
+        iov[i].iov_base = buf[i];
+        iov[i].iov_len = strlen(buf[i]+1);
+    }
+    nr = writev(fd, iov, 3);
+    if (nr ==-1){
+        perror("writev");
+        return 1;
+    }
+    printf("write %d byte",nr);
+    if (close(fd)){
+        perror("close");
+    }
+    return 0;
+}
 int main(int argc, char *argv[], char *env[])
 {
     writesome();
     readsome();
     // selectl();
-    selectvsleep();
+    // selectvsleep();
+    polll();
+    stdfileprocess();
+    readviov();
 }
