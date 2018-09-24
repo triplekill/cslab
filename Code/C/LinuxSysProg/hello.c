@@ -12,6 +12,8 @@
 #include <sys/select.h>
 #include <sys/poll.h>
 #include <sys/uio.h>
+#include <sys/mman.h>
+// #include <sys/epoll.h>
 
 #ifndef SSIZE_MAX
 // ubuntu 18.04 nodef
@@ -176,43 +178,51 @@ int stdfileprocess()
 {
     FILE *fd = fopen("t.txt", "r+");
     char ch = fgetc(fd);
-    printf("###%c %d###\n", ch,EOF);
+    printf("###%c %d###\n", ch, EOF);
     char buf[LINE_MAX];
-    if (fgets(buf, LINE_MAX,fd)){
-        printf("fgets |%d|%s|\n", LINE_MAX,buf);
+    if (fgets(buf, LINE_MAX, fd))
+    {
+        printf("fgets |%d|%s|\n", LINE_MAX, buf);
     }
-    fputc('c',fd);
+    fputc('c', fd);
     fputs("write string\n", fd);
     fclose(fd);
 
     FILE *in, *out;
-    struct pirate{
+    struct pirate
+    {
         char name[100];
         unsigned long booty;
         unsigned int beard_len;
-    }p, blockbeard={"Edward Teach", 950, 48};
+    } p, blockbeard = {"Edward Teach", 950, 48};
     out = fopen("data.bat", "w");
-    if (!out) {
+    if (!out)
+    {
         perror("fopen");
         return 1;
     }
-    if (!fwrite(&blockbeard, sizeof(struct pirate), 1, out)){
+    if (!fwrite(&blockbeard, sizeof(struct pirate), 1, out))
+    {
         perror("fwrite");
         return 1;
     }
-    if(fclose(out)){
+    if (fclose(out))
+    {
         perror("fclose");
         return 1;
     }
     in = fopen("data.bat", "r");
-    if (!in) {
+    if (!in)
+    {
         perror("fopen");
     }
-    if(!fread(&p,sizeof(struct pirate),1, in)){
+    if (!fread(&p, sizeof(struct pirate), 1, in))
+    {
         perror("fread");
         return 1;
     }
-    if (fclose(in)){
+    if (fclose(in))
+    {
         perror("fclose");
         return 1;
     }
@@ -220,34 +230,85 @@ int stdfileprocess()
     return 0;
 }
 
-int readviov(){
+int readvwriteviov()
+{
     struct iovec iov[3];
     ssize_t nr;
     int fd, i;
-    char * buf[] = {
+    char *buf[] = {
         "aaaaaaaaaaaa.",
         "bbbbbbbbbbbb.",
         "cccccccccccc.",
     };
-    fd =open("iov.bat",O_WRONLY|O_CREAT|O_TRUNC);
-    if (fd ==-1){
+    fd = open("iov.bat", O_WRONLY | O_CREAT, 777);
+    if (fd == -1)
+    {
         perror("open");
         return 1;
     }
-    for (i=0;i<3;i++){
+    for (i = 0; i < 3; i++)
+    {
         iov[i].iov_base = buf[i];
-        iov[i].iov_len = strlen(buf[i]+1);
+        iov[i].iov_len = strlen(buf[i] + 1);
     }
     nr = writev(fd, iov, 3);
-    if (nr ==-1){
+    if (nr == -1)
+    {
         perror("writev");
         return 1;
     }
-    printf("write %d byte",nr);
-    if (close(fd)){
+    printf("write %d byte\n", nr);
+    if (close(fd))
+    {
         perror("close");
     }
+
+    // read
+    char a[13], b[13], c[13];
+    a[12] = '\0'; // 补充最后的一个\0
+    b[12] = '\0';
+    c[12] = '\0';
+
+    fd = open("iov.bat", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("open");
+        return 1;
+    }
+
+    iov[0].iov_base = a;
+    iov[0].iov_len = sizeof(a) - 1; // 保留最后的\0
+    iov[1].iov_base = b;
+    iov[1].iov_len = sizeof(b) - 1;
+    iov[2].iov_base = c;
+    iov[2].iov_len = sizeof(c) - 1;
+
+    nr = readv(fd, iov, 3);
+    if (nr == -1)
+    {
+        perror("readv");
+        return 1;
+    }
+    printf("write %d byte\n", nr);
+    if (close(fd))
+    {
+        perror("close");
+    }
+    printf("%s\n", a);
     return 0;
+}
+
+int mmapt()
+{
+    int fd = open("t.txt", O_RDWR);
+    void *p;
+    p = mmap(0, 1, PROT_READ, MAP_SHARED, fd, 0);
+    if (p == MAP_FAILED)
+    {
+        perror("mmap");
+        return 1;
+    }
+    printf("%c\n", ((char *)p)[45]);
 }
 int main(int argc, char *argv[], char *env[])
 {
@@ -257,5 +318,6 @@ int main(int argc, char *argv[], char *env[])
     // selectvsleep();
     polll();
     stdfileprocess();
-    readviov();
+    readvwriteviov();
+    mmapt();
 }
