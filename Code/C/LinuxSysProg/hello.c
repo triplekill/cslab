@@ -14,6 +14,8 @@
 #include <sys/uio.h>
 #include <sys/mman.h>
 // #include <sys/epoll.h>
+#include <aio.h>
+// #include <sys/stat.h>
 
 #ifndef SSIZE_MAX
 // ubuntu 18.04 nodef
@@ -27,7 +29,6 @@ char buffer[BUF_SIZE];
 // 正确处理read
 int readsome()
 {
-
     int fd = open(PROCESS_FILENAME, O_RDONLY);
     if (fd == -1)
     {
