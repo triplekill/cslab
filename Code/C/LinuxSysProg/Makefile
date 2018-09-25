@@ -10,6 +10,7 @@ io:
 epoll: 
 process:
 mem:
+sig:
 
 .PHONY : clean linux
 
@@ -18,6 +19,7 @@ clean :
 	-rm epoll
 	-rm process
 	-rm mem
+	-rm sig
 	-rm -rf *.dSYM
 	-rm -rf iov.bat
 	-rm -rf data.bat
