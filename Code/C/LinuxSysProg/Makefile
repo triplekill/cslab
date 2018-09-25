@@ -7,13 +7,15 @@ CC=gcc
 all: io
 
 io:
-epoll : 
+epoll: 
+process:
 
 .PHONY : clean linux
 
 clean :
 	-rm io
 	-rm epoll
+	-rm process
 	-rm -rf *.dSYM
 	-rm -rf iov.bat
 	-rm -rf data.bat
