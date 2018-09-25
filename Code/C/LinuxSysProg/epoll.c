@@ -33,4 +33,3 @@ int main()
     printf("epoll\n");
     epollt();
 }
-·
