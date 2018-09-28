@@ -4,14 +4,17 @@ CFLAGS = -g -Wall -O3 -std=c99
 LDLIBS=
 CC=gcc
 
-all: io process mem sig thread
+all: io process mem sig thread pool
 
 io:
 epoll: 
 process:
 mem:
-sig:`
+sig:
 thread:
+pool:
+
+
 .PHONY : clean linux
 
 clean :
