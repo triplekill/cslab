@@ -4,13 +4,16 @@ CFLAGS = -g -Wall -O3 -std=c99
 LDLIBS=
 CC=gcc
 
-all: io
+all: io process mem sig thread pool
 
 io:
 epoll: 
 process:
 mem:
 sig:
+thread:
+pool:
+
 
 .PHONY : clean linux
 
@@ -20,6 +23,7 @@ clean :
 	-rm process
 	-rm mem
 	-rm sig
+	-rm thread
 	-rm -rf *.dSYM
 	-rm -rf iov.bat
 	-rm -rf data.bat
