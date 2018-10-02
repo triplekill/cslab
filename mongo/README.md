@@ -1,6 +1,4 @@
-# redis
-
-redis-server ./conf/redis.conf
+# mongo
 
 ## usage
 
