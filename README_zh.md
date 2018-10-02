@@ -16,7 +16,7 @@ By [Exfly](https://exfly.github.io/about/).
 
 ```shell
 cd /path/to/onedir
-git clone https://github.com/ExFly/ComputSciLab.git
+git clone https://github.com/ExFly/cslab.git
 ```
 
 具体每种实验环境，请看相应目录
@@ -27,20 +27,20 @@ git clone https://github.com/ExFly/ComputSciLab.git
 
 ## 环境介绍
 
-* [Docker](/ExFly/ComputSciLab/Docker)
-* [FlexBisonLLVM](/ExFly/ComputSciLab/FlexBisonLLVM)
-* [Kafka](/ExFly/ComputSciLab/Kafka)
-* [Java](/ExFly/ComputSciLab/set_path.sh)
-* [MariaDB](/ExFly/ComputSciLab/MariaDB) mysql/mariadb的安装和代码调试笔记
-* [Redis](/ExFly/ComputSciLab/Redis)
-* [mycode](/ExFly/ComputSciLab/Code)
+* [Docker](/ExFly/cslab/Docker)
+* [FlexBisonLLVM](/ExFly/cslab/FlexBisonLLVM)
+* [Kafka](/ExFly/cslab/Kafka)
+* [Java](/ExFly/cslab/set_path.sh)
+* [MariaDB](/ExFly/cslab/MariaDB) mysql/mariadb的安装和代码调试笔记
+* [Redis](/ExFly/cslab/Redis)
+* [mycode](/ExFly/cslab/Code)
 
 ### 已知的问题
 
 如果您发现任何错误，请随时在GitHub fork和git上创建问题
 向我们发送拉请求。
 
-[问题列表](https://github.com/ExFly/ComputSciLab/issues).
+[问题列表](https://github.com/ExFly/cslab/issues).
 
 ## 资源
 * [如何使用docker用于develop](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
