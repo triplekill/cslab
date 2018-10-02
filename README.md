@@ -24,13 +24,13 @@ git clone https://github.com/ExFly/cslab
 For details, please see the catalog of the corresponding environment
 
 ## Environment introduction
-* [Docker](/ExFly/cslab/blob/master/Docker)
-* [FlexBisonLLVM](/ExFly/cslab/blob/master/FlexBisonLLVM)
-* [Kafka](/ExFly/cslab/blob/master/Kafka)
-* [Java](/ExFly/cslab/blob/master/set_path.sh)
-* [MariaDB](/ExFly/cslab/blob/master/MariaDB)
-* [Redis](/ExFly/cslab/blob/master/Redis)
-* [Mycode](/ExFly/cslab/blob/master/Code)
+* [Docker](/Docker)
+* [FlexBisonLLVM](/FlexBisonLLVM)
+* [Kafka](/Kafka)
+* [Java](/set_path.sh)
+* [MariaDB](/MariaDB)
+* [Redis](/Redis)
+* [Mycode](/Code)
 
 ### Known Issues
 
