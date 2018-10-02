@@ -16,7 +16,7 @@ Every time I learn a technology, I must set up a corresponding development envir
 
 ```shell
 cd /path/to/onedir
-git clone https://github.com/ExFly/ComputSciLab.git
+git clone https://github.com/ExFly/cslab
 ```
 
 ## Usage
@@ -24,21 +24,20 @@ git clone https://github.com/ExFly/ComputSciLab.git
 For details, please see the catalog of the corresponding environment
 
 ## Environment introduction
-
-* [Docker](/ExFly/ComputSciLab/Docker)
-* [FlexBisonLLVM](/ExFly/ComputSciLab/FlexBisonLLVM)
-* [Kafka](/ExFly/ComputSciLab/Kafka)
-* [Java](/ExFly/ComputSciLab/set_path.sh)
-* [MariaDB](/ExFly/ComputSciLab/MariaDB)
-* [Redis](/ExFly/ComputSciLab/Redis)
-* [Mycode](/ExFly/ComputSciLab/Code)
+* [Docker](/ExFly/cslab/blob/master/Docker)
+* [FlexBisonLLVM](/ExFly/cslab/blob/master/FlexBisonLLVM)
+* [Kafka](/ExFly/cslab/blob/master/Kafka)
+* [Java](/ExFly/cslab/blob/master/set_path.sh)
+* [MariaDB](/ExFly/cslab/blob/master/MariaDB)
+* [Redis](/ExFly/cslab/blob/master/Redis)
+* [Mycode](/ExFly/cslab/blob/master/Code)
 
 ### Known Issues
 
 If you discover any bugs, feel free to create an issue on GitHub fork and
 send us a pull request.
 
-[Issues List](https://github.com/ExFly/ComputSciLab/issues).
+[Issues List](https://github.com/ExFly/cslab/blob/master/issues).
 
 ## Source
 * [learn to use docker in development](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
