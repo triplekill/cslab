@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"reflect"
+	"strings"
 )
 
-func main(){
+func main() {
 	var b strings.Builder
 	for i := 3; i >= 1; i-- {
 		fmt.Fprintf(&b, "%d...", i)
@@ -15,7 +15,7 @@ func main(){
 	fmt.Println(b.String())
 
 	bm := make([]byte, 0)
-	var tmp string= "abcdef"
+	var tmp string = "abcdef"
 	bm = append(bm, tmp...)
 	fmt.Println(bm)
 	fmt.Println(reflect.TypeOf(tmp))
@@ -41,6 +41,5 @@ func main(){
 
 	r := strings.NewReplacer("<", "&lt;", ">", "&gt;")
 	fmt.Println(r.Replace("This is <b>HTML</b>!"))
-
 
 }
