@@ -1,0 +1,8 @@
+{
+  "name": "jssyntax",
+  "version": "1.0.0",
+  "description": "js syntax",
+  "main": "index.js",
+  "author": "exfly",
+  "license": "MIT"
+}
