@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/exfly/lngo/model"
+	"github.com/ExFly/cslab/Code/Go/lngo/model"
 	gocache "github.com/go-redis/cache"
 	goredis "github.com/go-redis/redis"
 	"github.com/gomodule/redigo/redis"
