@@ -295,3 +295,6 @@ Code/Go/lngo/vendor
 
 hello
 node_modules
+
+# docker data dir
+.data

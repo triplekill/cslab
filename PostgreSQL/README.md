@@ -1,0 +1,3 @@
+- [github](https://github.com/docker-library/postgres)
+- [docker hub](https://hub.docker.com/_/postgres/)
+- [doc](http://www.postgres.cn/docs/10/)
