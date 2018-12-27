@@ -1,0 +1,14 @@
+version: '3'
+# https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples
+services:
+  scratch:
+    # Uses an image that’s built from the Dockerfile in the current directory.
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #  tag the image
+    image: exfly/scratch:dev
+    volumes:
+      - db-data:/db
+volumes:
+  db-data:
