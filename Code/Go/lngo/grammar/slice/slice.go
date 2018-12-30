@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"reflect"
 	"sort"
 	"unsafe"
@@ -42,7 +43,14 @@ func app() {
 	fmt.Printf("%#v\n", a)
 }
 
+func slicet() {
+	h := []string{"a", "b", "c"}
+	t := h[0:0]
+	log.Println(t)
+}
+
 func main() {
 	app()
 	SortFloat64FastV2()
+	slicet()
 }
