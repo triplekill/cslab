@@ -12,6 +12,11 @@ spec:
         configMapKeyRef:
           name: fortune-config
           key: sleep-interval
+    - name: FOO_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: fortune-https
+          key: foo
     volumeMounts:
     - name: html
       mountPath: /var/htdocs
@@ -37,7 +42,7 @@ spec:
     configMap:
       name: fortune-config
       items:
-      - key: my-nginx-config.conf
+      - key: ssl.conf
         path: https.conf
   - name: certs
     secret:
