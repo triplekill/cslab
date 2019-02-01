@@ -1,4 +1,7 @@
+minikube start --registry-mirror=https://registry.docker-cn.com
+
 docker build -t kubia .
+docker build -t vieux/apache:2.0 .
 docker run --name kubia-container -p 8080:8080 -d kubia
 docker exec -it kubia-container bash
 pa aux
@@ -76,3 +79,48 @@ exec fortune-https -c web-server -- mount | grep certs
 kubectl create secret docker-registry mydockerhubsecret \
   --docker-username=myusername --docker-password=mypassword \
   --docker-email=my.email@provider.com
+
+k proxy 
+curl localhost:8001
+curl localhost:8001/apis/batch/v1/jobs
+
+minikube start --extra-config=apiserver.Features.Enable-SwaggerUI=true
+
+minikube start --registry-mirror=https://registry.docker-cn.com --extra-config=apiserver.Features.Enable-SwaggerUI=true
+
+kubectl rolling-update kubia-v1 kubia-v2 --image=luksa/kubia:v2
+kubectl rolling-update kubia-v1 kubia-v2 --image=luksa/kubia:v2 --v 6
+
+k delete rc --all
+k create -f kubia-deployment-v1.yaml --record
+k rollout status deployment kubia
+kubectl patch deployment kubia -p '{"spec": {"minReadySeconds": 10}}'
+
+while true; do curl http://130.211.109.222; done
+k set image deployment kubia nodejs=luksa/kubia:v2
+k apply -f kubia-deployment-v2.yaml --record
+kubectl rollout undo deployment kubia
+kubectl rollout undo deployment kubia --record --to-revision=1
+kubectl rollout history deployment kubia
+kubectl rollout pause deployment kubia
+
+k proxy
+curl localhost:8001/api/v1/namespaces/default/pods/kubia-0/proxy/
+
+curl localhost:8001/api/v1/namespaces/default/services/kubia-public/proxy/
+
+kubectl run -it srvlookup --image=tutum/dnsutils --rm
+dig SRV kubia.default.svc.cluster.local
+
+kubectl get componentstatuses
+kubectl get po -o custom-columns=POD:metadata.name,NODE:spec.nodeName --sort-by spec.nodeName -n kube-system
+
+k exec etcd-minikube --namespace kube-system etcdctl
+kubectl get pods --watch
+kubectl get events --watch
+
+export no_proxy=$no_proxy,$(minikube ip)
+
+docker save k8s.gcr.io/fluentd-elasticsearch:v2.2.0 | ( eval $(minikube docker-env) && docker load )
+
+docker save k8s.gcr.io/elasticsearch:v6.2.5 | ( eval $(minikube docker-env) && docker load )
