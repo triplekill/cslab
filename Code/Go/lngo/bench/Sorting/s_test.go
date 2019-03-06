@@ -58,3 +58,12 @@ func BenchmarkSort1000000(b *testing.B) {
 		sort.Ints(s)
 	}
 }
+
+func BenchmarkSortBySort(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		b.StopTimer()
+		s := generateSlice(10000000)
+		b.StartTimer()
+		sort.Slice(s, func(i, j int) bool { return s[i] < (s[j]) })
+	}
+}
