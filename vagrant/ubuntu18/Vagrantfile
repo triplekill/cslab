@@ -67,6 +67,7 @@ Vagrant.configure("2") do |config|
 
     # install docker
     bash <(curl -s https://get.docker.com)
+    sudo usermod -aG docker `whoami`
 
     # install golang
     wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
