@@ -44,8 +44,7 @@ func startRPC() (*exec.Cmd, io.WriteCloser, io.ReadCloser, io.ReadCloser, error)
 		return nil, nil, nil, nil, err
 	}
 	// star the rpc server
-	err = rpcSvrCmd.Start()
-	if err != nil {
+	if err = rpcSvrCmd.Start(); err != nil {
 		return nil, nil, nil, nil, err
 	}
 	log.Print("sleep 1s to wait rpc server startup")
@@ -82,18 +81,17 @@ func interactWithRPC() {
 	client.Call("Task.GetToDo", "Finish App", &reply)
 	log.Println("Finish App: ", reply)
 
-	err = client.Call("Task.EditToDo", api.EditToDo{"Finish App", "Finish App", "Completed"}, &reply)
-	if err != nil {
+	if err = client.Call("Task.EditToDo", api.EditToDo{"Finish App", "Finish App", "Completed"}, &reply); err != nil {
 		log.Fatal("Problem editing ToDo: ", err)
 	}
 }
 
 func stopProcess(cmd *exec.Cmd) error {
-	pro, err := os.FindProcess(cmd.Process.Pid) //通过 pid 获取子进程
+	pro, err := os.FindProcess(cmd.Process.Pid)
 	if err != nil {
 		return err
 	}
-	err = pro.Signal(syscall.SIGINT) //给子进程发送信号使之结束
+	err = pro.Signal(syscall.SIGINT)
 	if err != nil {
 		return err
 	}
