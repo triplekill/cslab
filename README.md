@@ -1,5 +1,7 @@
 <!-- https://github.com/stephzilla/readme/blob/master/README.md -->
+
 # CS Lab and Code Snippet
+
 <!-- If you'd like to use a logo instead uncomment this code and remove the text above this line
 
   ![Logo](URL to logo img file goes here)
@@ -9,8 +11,9 @@
 By [Exfly](https://exfly.github.io/about/).
 
 ## Description
+
 > `docker` `vagrant` `dev env` `lab env` `virtualbox`
-Every time I learn a technology, I must set up a corresponding development environment. Others are repeating my steps. So I want to record my steps to build the environment as much as possible. Latecomers can build the development environment with one click, which can save a lot of time and focus on learning new things. As above. It also serves as my code repository.
+> Every time I learn a technology, I must set up a corresponding development environment. Others are repeating my steps. So I want to record my steps to build the environment as much as possible. Latecomers can build the development environment with one click, which can save a lot of time and focus on learning new things. As above. It also serves as my code repository.
 
 ## Installation
 
@@ -24,13 +27,14 @@ git clone https://github.com/ExFly/cslab
 For details, please see the catalog of the corresponding environment
 
 ## Environment introduction
-* [Docker](/Docker)
-* [FlexBisonLLVM](/FlexBisonLLVM)
-* [Kafka](/Kafka)
-* [Java](/set_path.sh)
-* [MariaDB](/MariaDB)
-* [Redis](/Redis)
-* [Mycode](/Code)
+
+- [Docker](/Docker)
+- [FlexBisonLLVM](/FlexBisonLLVM)
+- [Kafka](/Kafka)
+- [Java](/set_path.sh)
+- [MariaDB](/MariaDB)
+- [Redis](/Redis)
+- [Mycode](/Code)
 
 ### Known Issues
 
@@ -40,12 +44,12 @@ send us a pull request.
 [Issues List](https://github.com/ExFly/cslab/blob/master/issues).
 
 ## Source
-* [learn to use docker in development](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
 
+- [learn to use docker in development](https://github.com/coderjourney/03-learn-to-use-docker-in-development)
 
 ## Authors
 
-* [exfly](https://github.com/ExFly)
+- [exfly](https://github.com/ExFly)
 
 ## Contributing
 
@@ -54,7 +58,6 @@ send us a pull request.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
 
 ## License
 
@@ -71,3 +74,5 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0kdicqvb6pu&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
